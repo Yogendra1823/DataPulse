@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────
+   CSS Custom Properties
+───────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --background: 240 100% 4%;
+    --foreground: 210 40% 96%;
+    --card: 240 100% 6%;
+    --card-foreground: 210 40% 96%;
+    --popover: 240 100% 5%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 217 33% 14%;
+    --accent-foreground: 210 40% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 33% 12%;
+    --input: 217 33% 12%;
+    --ring: 239 84% 67%;
+    --radius: 0.75rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Base Reset
+───────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-dp-bg text-dp-text-primary antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  ::selection {
+    background: rgba(99, 102, 241, 0.35);
+    color: #f1f5f9;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Component utilities
+───────────────────────────────────────────────────────── */
+@layer components {
+  /* Cards */
+  .dp-card {
+    @apply bg-white/[0.03] border border-white/[0.07] rounded-2xl;
+  }
+  .dp-card-hover {
+    @apply dp-card transition-all duration-200 hover:border-white/[0.12] hover:-translate-y-0.5;
+  }
+
+  /* Gradient text */
+  .dp-gradient-text {
+    background: linear-gradient(135deg, #c7d2fe, #818cf8, #6366f1, #4f46e5);
+    background-size: 240% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient 4s linear infinite;
+  }
+
+  /* Buttons */
+  .dp-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-xl transition-all duration-200;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+  }
+  .dp-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.42);
+  }
+  .dp-btn-primary:disabled {
+    opacity: 0.55;
+    transform: none;
+    cursor: not-allowed;
+  }
+  .dp-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-200;
+    background: rgba(255, 255, 255, 0.065);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+  }
+  .dp-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(99, 102, 241, 0.4);
+  }
+
+  /* Inputs */
+  .dp-input {
+    @apply w-full text-sm rounded-xl px-4 py-3 outline-none transition-all duration-200 text-dp-text-primary placeholder-dp-text-dim;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .dp-input:focus {
+    border-color: rgba(99, 102, 241, 0.55);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  /* Badges */
+  .dp-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  /* Skeleton loader */
+  .dp-skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 25%,
+      rgba(255, 255, 255, 0.09) 50%,
+      rgba(255, 255, 255, 0.04) 75%
+    );
+    background-size: 400px 100%;
+    animation: shimmer 1.6s infinite;
+    border-radius: 8px;
+  }
+
+  /* Sidebar link */
+  .dp-nav-link {
+    @apply flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 cursor-pointer select-none;
+    color: #64748b;
+    border: 1px solid transparent;
+  }
+  .dp-nav-link:hover {
+    background: rgba(255, 255, 255, 0.055);
+    color: #cbd5e1;
+  }
+  .dp-nav-link.active {
+    background: rgba(99, 102, 241, 0.14);
+    color: #818cf8;
+    border-color: rgba(99, 102, 241, 0.22);
+  }
+
+  /* Chat bubbles */
+  .chat-bubble-user {
+    @apply self-end max-w-[72%] rounded-2xl rounded-br-sm px-4 py-3 text-sm;
+    background: rgba(99, 102, 241, 0.22);
+    color: #e0e7ff;
+  }
+  .chat-bubble-ai {
+    @apply self-start max-w-[82%] rounded-2xl rounded-bl-sm px-4 py-3 text-sm;
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+  }
+
+  /* Drop zone */
+  .dp-drop-zone {
+    @apply rounded-2xl cursor-pointer transition-all duration-200 text-center;
+    border: 2px dashed rgba(99, 102, 241, 0.3);
+    background: rgba(99, 102, 241, 0.04);
+  }
+  .dp-drop-zone:hover,
+  .dp-drop-zone.dragging {
+    border-color: rgba(99, 102, 241, 0.65);
+    background: rgba(99, 102, 241, 0.1);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Animations
+───────────────────────────────────────────────────────── */
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
