@@ -1,15 +1,21 @@
 # DataPulse — AI-Powered Revenue Intelligence Platform
 
-DataPulse is a modern SaaS revenue analytics platform designed for data-driven business leaders and analysts. By ingestion of raw transaction or sales records via drag-and-drop CSV/Excel files, DataPulse auto-generates dynamic KPI dashboards, performs detailed trend analyses, runs forecasting queries, and delivers boardroom-ready insights—powered by **Google Gemini AI**.
+DataPulse is a modern SaaS revenue analytics platform designed for data-driven business leaders and analysts. By ingestion of raw transaction or sales records via drag-and-drop CSV/Excel files, DataPulse delivers instant KPI dashboards, trend analysis, predictive forecasting, and AI-generated executive reports. Built with Next.js 15, TypeScript, Supabase, Recharts, and Claude/Gemini AI, the platform enables seamless data exploration through interactive charts and natural language queries.
+
+---
+
+## 🌐 Live Demo
+
+**Working URL**: [https://datapulse-intern.vercel.app/](https://datapulse-intern.vercel.app/)
 
 ---
 
 ## 🚀 Key Features
 
-*   **KPI Dashboard**: Real-time generation of critical metrics including **Total Revenue**, **Total Sales Volume**, **Orders**, **Profit Margins**, **Unique Customers**, and **Average Order Value (AOV)**.
-*   **Intelligent Column Mapping**: Auto-detects custom uploaded columns (mapping variants of Revenue, Sales, Quantity, Profit, Regions, and customer Segment parameters) with statistical parsing fail-safes.
-*   **Deep Financial Analytics**: Interactive visual representations of Revenue vs. Profit, Sales Volume vs. Order trends, Customer growth patterns, and Product revenue distributions using responsive charts.
-*   **Gemini AI Insights Engine**: High-fidelity analytical reports categorizing Executive Summaries, Trend Acceleration, Anomaly Flagging, Predictive Forecast models, and Product Mix Optimization.
+*   **KPI Dashboard**: Real-time generation of critical metrics including **Total Revenue**, **Total Sales Volume**, **Orders**, **Profit Margins**, **Unique Customers**, and **Average Order Value**.
+*   **Intelligent Column Mapping**: Auto-detects custom uploaded columns (mapping variants of Revenue, Sales, Quantity, Profit, Regions, and customer Segment parameters) with statistical parsing for seamless data ingestion.
+*   **Deep Financial Analytics**: Interactive visual representations of Revenue vs. Profit, Sales Volume vs. Order trends, Customer growth patterns, and Product revenue distributions using responsive Recharts visualizations.
+*   **Gemini AI Insights Engine**: High-fidelity analytical reports categorizing Executive Summaries, Trend Acceleration, Anomaly Flagging, Predictive Forecast models, and Product Mix Optimization recommendations.
 *   **Interactive Data Chat**: Chat naturally with your business datasets using natural language queries to extract ad-hoc analytics instantly.
 *   **Security & User Credentials**: Built-in authentication (email/password & OAuth) with secure password resets, email updates via Supabase, and strict Row Level Security (RLS) data isolation.
 
