@@ -114,11 +114,11 @@ cp .env.example .env.local
 Open `.env.local` and supply the required parameters:
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anonymous_key_here
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key_here
 
 # Google Gemini Configuration
-GOOGLE_AI_API_KEY=AIzaSy...
+GOOGLE_AI_API_KEY=your_google_gemini_api_key_here
 AI_PROVIDER=gemini
 AI_MODEL=gemini-2.0-flash
 
@@ -160,17 +160,17 @@ To toggle your AI integration, adjust the `AI_PROVIDER` flag inside your `.env.l
 # Google Gemini (Default/Recommended)
 AI_PROVIDER=gemini
 AI_MODEL=gemini-2.0-flash
-GOOGLE_AI_API_KEY=AIzaSy...
+GOOGLE_AI_API_KEY=your_google_gemini_api_key_here
 
 # Anthropic Claude (Alternative)
 AI_PROVIDER=anthropic
 AI_MODEL=claude-3-5-sonnet-20241022
-ANTHROPIC_API_KEY=sk-ant-...
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
 
 # OpenAI (Alternative)
 AI_PROVIDER=openai
 AI_MODEL=gpt-4o
-OPENAI_API_KEY=sk-...
+OPENAI_API_KEY=your_openai_api_key_here
 ```
 
 ---
