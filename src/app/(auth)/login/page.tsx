@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { createClient } from "@/lib/supabase/client";
 
-export default function LoginPage() {
+function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirectTo") ?? "/dashboard";
@@ -88,5 +88,28 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-dp-bg flex items-center justify-center p-5">
+        <div className="dp-card p-10 w-full max-w-md rounded-2xl animate-pulse">
+          <div className="text-center mb-8">
+            <div className="w-12 h-12 rounded-[14px] bg-white/10 mx-auto mb-4" />
+            <div className="h-6 w-32 bg-white/10 mx-auto mb-2 rounded" />
+            <div className="h-4 w-48 bg-white/10 mx-auto mb-8 rounded" />
+          </div>
+          <div className="space-y-4">
+            <div className="h-10 bg-white/10 w-full rounded" />
+            <div className="h-10 bg-white/10 w-full rounded" />
+            <div className="h-10 bg-white/10 w-full rounded" />
+          </div>
+        </div>
+      </div>
+    }>
+      <LoginContent />
+    </Suspense>
   );
 }
